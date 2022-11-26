@@ -20,9 +20,17 @@ export default {
   methods: {
     setCapital(e) {
       //TODO: implementar. fija la capital del input.
+      this.capital = e.target.value; //listo
     },
     adivinarCapital() {
-      //TODO: implementar. verifica se la adivinanza es correcta.
+      //TODO: implementar. verifica se la adivinanza es correcta. 
+      if (this.capital.toLowerCase() === this.country.capital.toLowerCase()) {
+        this.puntaje++;
+        this.country = countries[Math.floor(Math.random() * countries.length)];
+        this.capital = "";
+      } else {
+        alert("No es correcto, lo siento"); // listo
+      }
     },
   },
 };
@@ -31,13 +39,26 @@ export default {
 <template>
   <h1>Puntaje: {{ puntaje }}</h1>
   <div class="countries">
-    <!-- TODO: usar los metodos definidos arriba dentro del input para llenar el estado de la capital a adivinar-->
+    <!-- TODO: usar los metodos definidos arriba dentro del input para llenar el estado de la capital a adivinar:-->
     <input
       placeholder="Adivina la capital"
+      :value="this.capital"
+      @input="setCapital"
     />
     <button @click="adivinarCapital">Adivina!</button>
-    <div class="countries-container">
+
       <!--TODO: CREAR EL COMPONENTE PARA VISUALIZAR EL PAIS-->
+
+      <div class="countries-container">
+        <CountryComponent
+        :name="country.name"
+        :capital="'???'"
+        :currency_name="country.currency_name"
+        :currency="country.currency"
+        :region="country.region"
+        :code="country.iso2"
+
+      ></CountryComponent>
     </div>
   </div>
 </template>

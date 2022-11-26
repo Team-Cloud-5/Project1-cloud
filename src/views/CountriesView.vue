@@ -19,7 +19,13 @@ export default {
   methods: {
     filtrarPais(e) {
       // TODO: Implementar. filtra el país de acuerdo al valor del input. Hint: Recuerda la función filter
-      const filtro = e.target.value;
+      this.paisActual=e.target.value; //listo
+      this.countries=countries.filter((country)=>{
+        return country.name.toLowerCase().includes(
+          this.paisActual.toLowerCase()
+        );
+      });
+      const filtro=e.target.value;
     },
   },
 };
@@ -44,7 +50,7 @@ export default {
       :currency="country.currency"
       :region="country.region"
       :code="country.iso2"
-
+      :clickable="true"
     ></CountryComponent>
   </div>
 </template>

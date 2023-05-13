@@ -25,7 +25,7 @@ export default {
     <p>Capital: {{ country.capital }}</p>
     <p>Moneda: {{ country.currency_name }} ({{ country.currency}})</p>
     <p>Región: {{ country.region }}</p>
-    <img :src="'https://www.countryflagsapi.com'" />
+    <img :src="'https://www.countryflagicons.com/'" />
     
     <img
       width="400"

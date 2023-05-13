@@ -12,6 +12,7 @@ export default {
       country: {},
       capital: "",
       puntaje: 0,
+      pt: true
     };
   },
   created() {
@@ -21,6 +22,7 @@ export default {
     setCapital(e) {
       //TODO: implementar. fija la capital del input.
       this.capital = e.target.value; //listo
+      this.pt = true;
     },
     adivinarCapital() {
       //TODO: implementar. verifica se la adivinanza es correcta. 
@@ -29,7 +31,10 @@ export default {
         this.country = countries[Math.floor(Math.random() * countries.length)];
         this.capital = "";
       } else {
-        alert("No es correcto, lo siento"); // listo
+        this.country = countries[Math.floor(Math.random() * countries.length)];
+        this.capital = "";
+        this.puntaje = 0;
+        this.pt = false
       }
     },
   },
@@ -60,6 +65,8 @@ export default {
 
       ></CountryComponent>
     </div>
+    <h1>{{puntaje}} punto(s)</h1>
+    <h1 v-if="pt==false">Perdiste</h1>
   </div>
 </template>
 

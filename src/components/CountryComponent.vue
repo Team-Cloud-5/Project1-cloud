@@ -24,7 +24,7 @@ export default {
   >
     
   <!--TODO: Poblar el HTML con las propiedades. Usar https://countryflagsapi.com/png/${code} hecho-->
-    <img :src="`https://countryflagsapi.com/png/${code}`"  width="200" height="190" left="true" />
+    <img :src="`https://www.countryflagsapi.com/png/${code}`"  width="200" height="190" left="true" />
     <h1>{{ name }}</h1>
     <h2>Capital: {{ capital }}</h2>
     <h3>Moneda: {{ currency_name }} ({{ currency}})</h3>
